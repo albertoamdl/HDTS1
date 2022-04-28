@@ -1,0 +1,34 @@
+<div class="navbar">
+    <div class="dropdown">
+        <button class="dropbtn">Requester
+            <i class="fa fa-caret-down"></i>
+        </button>
+        <div class="dropdown-content">
+            <a href="{% url 'r_requests' %}">Requests</a>
+            <a href="{% url 'r_messages' %}">Messages</a>
+        </div>
+    </div>
+    <div class="dropdown">
+        <button class="dropbtn">Maintainer
+            <i class="fa fa-caret-down"></i>
+        </button>
+        <div class="dropdown-content">
+            <a href="{% url 'm_requests' %}">Requests</a>
+            <a href="{% url 'm_hard_drives' %}">Hard Drives</a>
+            <a href="{% url 'm_messages' %}">Messages</a>
+            <a href="{% url 'm_reports' %}">Reports</a>
+            <a href="{% url 'm_configurations' %}">Configurations</a>
+        </div>
+    </div>
+    <div class="dropdown">
+        <button class="dropbtn">Auditor
+            <i class="fa fa-caret-down"></i>
+        </button>
+        <div class="dropdown-content">
+            <a href="{% url 'a_hard_drives' %}">Hard Drives</a>
+            <a href="{% url 'a_messages' %}">Messages</a>
+            <a href="{% url 'a_reports' %}">Reports</a>
+        </div>
+    </div>
+    <a href="{% url 'logoutUser' %}">[Logout]</a>
+</div>
