@@ -1,0 +1,66 @@
+{% extends 'pages/base.html' %}
+{% load static %}
+
+{% block mainBody %}
+<link rel="stylesheet" href='assets/css/styles2.css'>
+<section class="hero">
+    <div class="background-image" style="background-image: url({% static 'assets/img/island.jpg' %});"></div>
+    <h1>Maintainer-Requests Detailed View</h1>
+    <h3>Hard Drive Tracking System</h3>
+
+
+    <section id="requestInfo">
+        <h2 class="title">REQUEST INFORMATION</h2><br>
+        <form method="POST">
+            <div>
+                <table id="info">
+                    <thead>
+                    <tr>
+                        <th scope="col"> Select/ Unselect All</th>
+                        <th scope="col">Request Reference No.</th>
+                        <th scope="col">Request Date</th>
+                        <th scope="col">Event Start Date</th>
+                        <th scope="col">Event End Date</th>
+                        <th scope="col">Need Drive Due By Date</th>
+                        <th scope="col">Event Name</th>
+                        <th scope="col">Event Description</th>
+                        <th scope="col">Event Type</th>
+                        <th scope="col">Event Lead</th>
+                        <th scope="col">Total No. of Drives</th>
+                        <th scope="col">Request Status</th>
+                        <th scope="col">View Details</th>
+                    </tr>
+
+                    </thead>
+                    <tbody>
+                    {% for each_request in my_requests %}
+                    <tr>
+                        <td><input type="checkbox" name="selectedReq"></td>
+                        <td> {{each_request.receipt_number}}</td>
+                        <td></td>
+                        <td>{{each_request.event.start_date}}</td>
+                        <td>{{each_request.event.end_date}}</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td>{{each_request.status}}</td>
+                        <td></td>
+
+                    </tr>
+                    {%endfor%}
+                    </tbody>
+                </table>
+            </div>
+        </form>
+        <div>
+            <br>
+            <button type="submit">Clone Request</button>
+            <button type="submit">Add Request</button>
+        </div>
+    </section>
+</section>
+
+{% endblock %}
