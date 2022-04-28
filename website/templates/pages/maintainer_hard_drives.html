@@ -1,0 +1,19 @@
+{% extends 'pages/base.html' %}
+{% load static %}
+
+
+{% block mainBody %}
+<section class="hero">
+    <div class="background-image" style="background-image: url({% static 'assets/img/island.jpg' %});"></div>
+    <h1>Maintainer-Hard Drives Detailed View</h1>
+    <h3>Hard Drive Tracking System</h3>
+    Hard Drives<br>
+
+    {% for hard_drive in hard_drives %}
+    {{hard_drive}}<br>
+    {% endfor %}
+
+</section>
+
+{% endblock %}
+

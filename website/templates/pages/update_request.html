@@ -1,0 +1,105 @@
+{% extends 'pages/base.html' %}
+{% load static %}
+
+{% block mainBody %}
+<section class="hero">
+    <div class="background-image" style="background-image: url({% static 'assets/img/island.jpg' %});"></div>
+    <h1>Update Request</h1>
+    {% for message in messages %}
+    {{ message }}
+    {% endfor %}
+	<br>
+    <form method="POST">
+        {% csrf_token %}
+        <table class="rwd-table" >
+            <tbody>
+            <tr>
+                <th colspan=3>Request Details</th>
+            </tr>
+            <tr>
+                <td>Request Number</td>
+                <td>{{this_request.request_number}}</td>
+                <td>X</td>
+            </tr>
+            <tr>
+                <td>Requester</td>
+                <td>{{this_request.requester}}</td>
+                <td>{{update_request_form.requester}}</td>
+            </tr>
+            <tr>
+                <td>Pickup Date</td>
+                <td>{{this_request.pickup_date}}</td>
+                <td>{{update_request_form.pickup_date}}</td>
+            </tr>
+            <tr>
+                <td>QUANTITY(C.H.D) Requested</td>
+                <td>{{this_request.number_of_classified_hard_drives_needed}}</td>
+                <td>{{update_request_form.number_of_classified_hard_drives_needed}}</td>
+            </tr>
+            <tr>
+                <td>Quantity(U.H.D) Requested</td>
+                <td>{{this_request.number_of_unclassified_hard_drives_needed}}</td>
+                <td>{{update_request_form.number_of_unclassified_hard_drives_needed}}</td>
+            </tr>
+            <tr>
+                <td>Event</td>
+                <td>{{this_request.event.name}}</td>
+                <td>X</td>
+            </tr>
+            <tr>
+                <td>Event Description</td>
+                <td>{{this_request.event.description}}</td>
+                <td>{{update_event_form.description}}</td>
+            </tr>
+            <tr>
+                <td>Event Location</td>
+                <td>{{this_request.event.location}}</td>
+                <td>{{update_event_form.location}}</td>
+            </tr>
+            <tr>
+                <td>Event Lead</td>
+                <td>{{this_request.event.lead}}</td>
+                <td>{{update_event_form.lead}}</td>
+            </tr>
+            <tr>
+                <td>Event Participants</td>
+                <td>{{this_request.event.participants}}</td>
+                <td>{{update_event_form.participants}}</td>
+            </tr>
+            <tr>
+                <td>Event Type</td>
+                <td>{{this_request.event.type}}</td>
+                <td>{{update_event_form.type}}</td>
+            </tr>
+            <tr>
+                <td>Event Start Date</td>
+                <td>{{this_request.event.start_date}}</td>
+                <td>{{update_event_form.start_date}}</td>
+            </tr>
+            <tr>
+                <td>Event End Date</td>
+                <td>{{this_request.event.end_date}}</td>
+                <td>{{update_event_form.end_date}}</td>
+            </tr>
+            <tr>
+                <td>Comments</td>
+                <td>{{this_request.comment}}</td>
+                <td>{{update_request_form.comment}}</td>
+            </tr>
+            <tr>
+                <td>Request Status</td>
+                <td>{{this_request.status}}</td>
+                <td>X</td>
+            </tr>
+            <tr>
+                <td colspan=3>
+                    <input class="submit-button" type="submit" value="Update Request" >
+                    <a class="submit-button" href="{% url 'r_requests' %}">Cancel</a>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </form>
+</section>
+
+{% endblock %}
